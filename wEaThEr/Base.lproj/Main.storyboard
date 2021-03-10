@@ -1,24 +1,956 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aCN-g6-8Ez">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="wEaThEr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="hWD-R2-e7d">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="adP-B2-teq">
+                                <rect key="frame" x="0.0" y="73" width="414" height="789"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="N8Y-DJ-MEQ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N8Y-DJ-MEQ" id="BFk-hJ-Wd4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUA-7j-1kN">
+                                <rect key="frame" x="375" y="46" width="29" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pUA-7j-1kN" secondAttribute="height" id="t3Z-6c-KSv"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="uV5-K6-qCj" kind="presentation" id="s91-1F-VN7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hWD-R2-e7d" secondAttribute="trailing" id="3Qa-KZ-Nyv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pUA-7j-1kN" secondAttribute="trailing" constant="10" id="44b-5w-4gm"/>
+                            <constraint firstItem="adP-B2-teq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dj2-p9-hVs"/>
+                            <constraint firstItem="adP-B2-teq" firstAttribute="top" secondItem="pUA-7j-1kN" secondAttribute="bottom" id="Iep-Bp-DmA"/>
+                            <constraint firstItem="pUA-7j-1kN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V1q-DJ-oKg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="adP-B2-teq" secondAttribute="bottom" id="ZKR-na-dVF"/>
+                            <constraint firstItem="pUA-7j-1kN" firstAttribute="width" secondItem="hWD-R2-e7d" secondAttribute="width" multiplier="0.07" id="d1L-OV-3ES"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="adP-B2-teq" secondAttribute="trailing" id="eMU-sL-Gj7"/>
+                            <constraint firstAttribute="bottom" secondItem="hWD-R2-e7d" secondAttribute="bottom" id="mwv-fe-fpT"/>
+                            <constraint firstItem="hWD-R2-e7d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o58-aI-0El"/>
+                            <constraint firstItem="hWD-R2-e7d" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="q40-NO-dzA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jZ1-Gn-5nK">
+                        <barButtonItem key="leftBarButtonItem" image="moon.circle.fill" catalog="system" id="NqP-GN-RUi"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="pWb-4S-GVr"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="locationTableView" destination="adP-B2-teq" id="AuT-dC-OUx"/>
+                        <segue destination="Kzz-e8-A9C" kind="presentation" identifier="locationToWeather" modalPresentationStyle="fullScreen" id="Bbb-QV-ozC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="221.65178571428569"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="lcv-Kc-vIu">
+            <objects>
+                <viewController id="uV5-K6-qCj" customClass="SearchViewController" customModule="wEaThEr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T6a-cA-c3Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="search for your desired location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OG7-fy-3kt">
+                                <rect key="frame" x="10" y="10" width="394" height="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-uw-3DH">
+                                <rect key="frame" x="0.0" y="38" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQ0-Ss-fCe">
+                                <rect key="frame" x="0.0" y="94" width="414" height="714"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultCell" rowHeight="50" id="x7y-YN-D1Z" customClass="SearchResultsTableViewCell" customModule="wEaThEr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x7y-YN-D1Z" id="8BW-5d-P0D">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="acs-Fx-G7J" userLabel="resultLabel">
+                                                    <rect key="frame" x="5" y="3" width="404" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="resultLabel"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="acs-Fx-G7J" secondAttribute="trailing" constant="5" id="F2C-Hv-eB4"/>
+                                                <constraint firstAttribute="bottom" secondItem="acs-Fx-G7J" secondAttribute="bottom" constant="3" id="G1C-fP-smw"/>
+                                                <constraint firstItem="acs-Fx-G7J" firstAttribute="leading" secondItem="8BW-5d-P0D" secondAttribute="leading" constant="5" id="hdj-nz-PRz"/>
+                                                <constraint firstItem="acs-Fx-G7J" firstAttribute="top" secondItem="8BW-5d-P0D" secondAttribute="top" constant="3" id="hwf-fV-LLB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="resultLabel" destination="acs-Fx-G7J" id="VMq-Eb-Uta"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TeA-Ph-TT8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eQ0-Ss-fCe" firstAttribute="top" secondItem="BQj-uw-3DH" secondAttribute="bottom" id="JvC-uB-M8f"/>
+                            <constraint firstItem="TeA-Ph-TT8" firstAttribute="trailing" secondItem="eQ0-Ss-fCe" secondAttribute="trailing" id="KwB-h8-qdz"/>
+                            <constraint firstItem="BQj-uw-3DH" firstAttribute="top" secondItem="OG7-fy-3kt" secondAttribute="bottom" constant="5" id="MRF-GU-nKw"/>
+                            <constraint firstItem="OG7-fy-3kt" firstAttribute="centerX" secondItem="T6a-cA-c3Q" secondAttribute="centerX" id="N6O-fG-etg"/>
+                            <constraint firstItem="OG7-fy-3kt" firstAttribute="top" secondItem="TeA-Ph-TT8" secondAttribute="top" constant="10" id="VMk-4f-po4"/>
+                            <constraint firstItem="TeA-Ph-TT8" firstAttribute="trailing" secondItem="OG7-fy-3kt" secondAttribute="trailing" constant="10" id="ZL2-hA-qcH"/>
+                            <constraint firstItem="OG7-fy-3kt" firstAttribute="leading" secondItem="TeA-Ph-TT8" secondAttribute="leading" constant="10" id="dfG-4V-VA5"/>
+                            <constraint firstItem="TeA-Ph-TT8" firstAttribute="bottom" secondItem="eQ0-Ss-fCe" secondAttribute="bottom" id="inm-jj-dqZ"/>
+                            <constraint firstItem="eQ0-Ss-fCe" firstAttribute="leading" secondItem="TeA-Ph-TT8" secondAttribute="leading" id="lDD-R9-iWY"/>
+                            <constraint firstItem="BQj-uw-3DH" firstAttribute="leading" secondItem="TeA-Ph-TT8" secondAttribute="leading" id="myu-Hk-FO2"/>
+                            <constraint firstItem="BQj-uw-3DH" firstAttribute="trailing" secondItem="TeA-Ph-TT8" secondAttribute="trailing" id="xgy-n1-0SU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultTableView" destination="eQ0-Ss-fCe" id="agg-qC-ffY"/>
+                        <outlet property="searchBar" destination="BQj-uw-3DH" id="V2u-Eh-rZS"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="searchToLocation" modalPresentationStyle="fullScreen" id="UyN-xg-0Zr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40n-hz-0ta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="930"/>
+        </scene>
+        <!--Starting View Controller-->
+        <scene sceneID="2Oq-F6-l32">
+            <objects>
+                <viewController id="aCN-g6-8Ez" customClass="StartingViewController" customModule="wEaThEr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rj8-Jl-She">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weathering with you" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mS-0h-I9v">
+                                <rect key="frame" x="253.5" y="359" width="120.5" height="68"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天気の子" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olc-Zj-EFD">
+                                <rect key="frame" x="306" y="430" width="68" height="21"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="e2Z-jt-0QM">
+                                <rect key="frame" x="0.0" y="0.0" width="424" height="916"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kIQ-4n-Jxh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kIQ-4n-Jxh" firstAttribute="trailing" secondItem="Olc-Zj-EFD" secondAttribute="trailing" constant="40" id="2NW-Uo-HJc"/>
+                            <constraint firstItem="Olc-Zj-EFD" firstAttribute="top" secondItem="9mS-0h-I9v" secondAttribute="bottom" constant="3" id="Ug5-wr-1g2"/>
+                            <constraint firstItem="9mS-0h-I9v" firstAttribute="top" secondItem="kIQ-4n-Jxh" secondAttribute="top" constant="315" id="ani-F1-Cfb"/>
+                            <constraint firstAttribute="bottom" secondItem="e2Z-jt-0QM" secondAttribute="bottom" constant="-20" id="dvy-md-tgd"/>
+                            <constraint firstItem="e2Z-jt-0QM" firstAttribute="top" secondItem="Rj8-Jl-She" secondAttribute="top" id="hMv-2P-NPm"/>
+                            <constraint firstItem="e2Z-jt-0QM" firstAttribute="trailing" secondItem="kIQ-4n-Jxh" secondAttribute="trailing" constant="10" id="m2f-d5-zPT"/>
+                            <constraint firstItem="e2Z-jt-0QM" firstAttribute="leading" secondItem="kIQ-4n-Jxh" secondAttribute="leading" id="txM-0O-syN"/>
+                            <constraint firstItem="kIQ-4n-Jxh" firstAttribute="trailing" secondItem="9mS-0h-I9v" secondAttribute="trailing" constant="40" id="xeF-Xx-Lkb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Kzz-e8-A9C" kind="presentation" identifier="startingToWeather" animates="NO" modalPresentationStyle="fullScreen" id="eHG-MP-BeF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64v-Ov-Haz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="-542.41071428571422"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="xwQ-AO-N6K">
+            <objects>
+                <viewController id="Kzz-e8-A9C" customClass="WeatherViewController" customModule="wEaThEr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B70-RR-Y7U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night" translatesAutoresizingMaskIntoConstraints="NO" id="FxY-Ar-crl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LocationLocationLocation" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mid-4j-Xj6">
+                                <rect key="frame" x="207" y="241" width="296" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldItalicMT" family="Courier New" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulv-5e-LNV">
+                                <rect key="frame" x="15" y="79" width="0.0" height="100"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="sun.min" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FoK-Qd-EiR">
+                                <rect key="frame" x="145" y="283" width="124" height="123"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FoK-Qd-EiR" secondAttribute="height" id="v3W-1b-C87"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="44" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScK-uY-YNg">
+                                <rect key="frame" x="175" y="179" width="84.5" height="79.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZj-g9-x2Z">
+                                <rect key="frame" x="0.0" y="411.5" width="414" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EaM-vs-Rto">
+                                        <rect key="frame" x="3" y="0.0" width="890" height="90"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TC4-Xx-2JT">
+                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2C-w7-7pj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YgS-VE-jdC">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8x-Ps-sNs">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="y2C-w7-7pj" firstAttribute="centerX" secondItem="TC4-Xx-2JT" secondAttribute="centerX" id="7uj-ZR-wad"/>
+                                                    <constraint firstItem="x8x-Ps-sNs" firstAttribute="centerX" secondItem="TC4-Xx-2JT" secondAttribute="centerX" id="jNf-7E-VLE"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j84-mG-HTE">
+                                                <rect key="frame" x="74.5" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vse-Ph-qhn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-Fk-6uj">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y29-Z2-X6X">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Y29-Z2-X6X" firstAttribute="centerX" secondItem="j84-mG-HTE" secondAttribute="centerX" id="ECJ-9u-8Id"/>
+                                                    <constraint firstItem="Vse-Ph-qhn" firstAttribute="centerX" secondItem="j84-mG-HTE" secondAttribute="centerX" id="VCD-eL-Yd4"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sY-5O-HLe">
+                                                <rect key="frame" x="149" y="0.0" width="70" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh9-g0-QXa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvo-gU-d5m">
+                                                        <rect key="frame" x="0.0" y="19.5" width="70" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5og-jZ-gUQ">
+                                                        <rect key="frame" x="0.0" y="70.5" width="70" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mh9-g0-QXa" firstAttribute="centerX" secondItem="4sY-5O-HLe" secondAttribute="centerX" id="HW4-hx-afA"/>
+                                                    <constraint firstItem="5og-jZ-gUQ" firstAttribute="centerX" secondItem="4sY-5O-HLe" secondAttribute="centerX" id="QjB-do-A37"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-DP-gig">
+                                                <rect key="frame" x="224" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYx-T6-KJp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Z4-bx-r5Y">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O68-NH-88k">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="O68-NH-88k" firstAttribute="centerX" secondItem="w4E-DP-gig" secondAttribute="centerX" id="qic-S6-9xQ"/>
+                                                    <constraint firstItem="NYx-T6-KJp" firstAttribute="centerX" secondItem="w4E-DP-gig" secondAttribute="centerX" id="toG-8O-Xsx"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cK7-w2-iHk">
+                                                <rect key="frame" x="298.5" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-CM-wZy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lS0-tc-F9J">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1O-so-JqN">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="X1O-so-JqN" firstAttribute="centerX" secondItem="cK7-w2-iHk" secondAttribute="centerX" id="Ve9-vs-fui"/>
+                                                    <constraint firstItem="cBo-CM-wZy" firstAttribute="centerX" secondItem="cK7-w2-iHk" secondAttribute="centerX" id="lbF-se-6PA"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-1D-C3T">
+                                                <rect key="frame" x="373" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-Ig-gN8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="den-ye-zUc">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCb-7Y-3ii">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="CCb-7Y-3ii" firstAttribute="centerX" secondItem="b7A-1D-C3T" secondAttribute="centerX" id="D3n-Du-HYV"/>
+                                                    <constraint firstItem="6tA-Ig-gN8" firstAttribute="centerX" secondItem="b7A-1D-C3T" secondAttribute="centerX" id="yH2-vy-iuJ"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-vV-DS3">
+                                                <rect key="frame" x="447.5" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w06-yf-IhD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94Y-EE-wz5">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yK-7j-tN5">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="w06-yf-IhD" firstAttribute="centerX" secondItem="fHO-vV-DS3" secondAttribute="centerX" id="rgp-F0-9H9"/>
+                                                    <constraint firstItem="1yK-7j-tN5" firstAttribute="centerX" secondItem="fHO-vV-DS3" secondAttribute="centerX" id="zIk-Au-24a"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qk0-JX-MRC">
+                                                <rect key="frame" x="522" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCD-oR-V9e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Z8-Hkg">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Y-qG-hgr">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="44Y-qG-hgr" firstAttribute="centerX" secondItem="Qk0-JX-MRC" secondAttribute="centerX" id="XxX-Cs-lyn"/>
+                                                    <constraint firstItem="kCD-oR-V9e" firstAttribute="centerX" secondItem="Qk0-JX-MRC" secondAttribute="centerX" id="Zce-mQ-KVi"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-U3-tGy">
+                                                <rect key="frame" x="596.5" y="0.0" width="70" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it9-NT-MZ2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fl8-BX-uno">
+                                                        <rect key="frame" x="0.0" y="19.5" width="70" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmJ-XH-xzN">
+                                                        <rect key="frame" x="0.0" y="70.5" width="70" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="it9-NT-MZ2" firstAttribute="centerX" secondItem="w4X-U3-tGy" secondAttribute="centerX" id="0ti-xP-3yd"/>
+                                                    <constraint firstItem="PmJ-XH-xzN" firstAttribute="centerX" secondItem="w4X-U3-tGy" secondAttribute="centerX" id="OgG-QN-MjK"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GPU-tU-jbw">
+                                                <rect key="frame" x="671.5" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9z-D8-aTx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amz-yI-FHM">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuB-FJ-TV8">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="uuB-FJ-TV8" firstAttribute="centerX" secondItem="GPU-tU-jbw" secondAttribute="centerX" id="JxZ-Ts-P74"/>
+                                                    <constraint firstItem="f9z-D8-aTx" firstAttribute="centerX" secondItem="GPU-tU-jbw" secondAttribute="centerX" id="Taq-s5-UqC"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VvW-La-AD8">
+                                                <rect key="frame" x="746" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6B-S1-UdJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WMG-V4-oix">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlI-fe-eKS">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="y6B-S1-UdJ" firstAttribute="centerX" secondItem="VvW-La-AD8" secondAttribute="centerX" id="6QL-yV-K3m"/>
+                                                    <constraint firstItem="NlI-fe-eKS" firstAttribute="centerX" secondItem="VvW-La-AD8" secondAttribute="centerX" id="v6r-Cs-AAb"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fxO-Db-kUm">
+                                                <rect key="frame" x="820.5" y="0.0" width="69.5" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsV-ej-Olk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SdH-ve-ItO">
+                                                        <rect key="frame" x="0.0" y="19.5" width="69.5" height="51"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om0-Fh-2kP">
+                                                        <rect key="frame" x="0.0" y="70.5" width="69.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Om0-Fh-2kP" firstAttribute="centerX" secondItem="fxO-Db-kUm" secondAttribute="centerX" id="3CR-NH-72b"/>
+                                                    <constraint firstItem="VsV-ej-Olk" firstAttribute="centerX" secondItem="fxO-Db-kUm" secondAttribute="centerX" id="zfb-0f-ItS"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="890" id="7Ra-4J-bmf"/>
+                                            <constraint firstAttribute="height" constant="90" id="Kh8-zK-gf1"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EaM-vs-Rto" firstAttribute="top" secondItem="QsM-71-8jF" secondAttribute="top" id="03i-NC-shY"/>
+                                    <constraint firstItem="EaM-vs-Rto" firstAttribute="leading" secondItem="Mk5-K4-v8f" secondAttribute="leading" constant="3" id="Wcg-Aj-G9B"/>
+                                    <constraint firstItem="QsM-71-8jF" firstAttribute="bottom" secondItem="EaM-vs-Rto" secondAttribute="bottom" id="k3D-c8-rNf"/>
+                                    <constraint firstItem="EaM-vs-Rto" firstAttribute="bottom" secondItem="Mk5-K4-v8f" secondAttribute="bottom" constant="90" id="l9V-L0-zAw"/>
+                                    <constraint firstItem="EaM-vs-Rto" firstAttribute="top" secondItem="Mk5-K4-v8f" secondAttribute="top" id="mLY-zB-gqk"/>
+                                    <constraint firstItem="EaM-vs-Rto" firstAttribute="trailing" secondItem="Mk5-K4-v8f" secondAttribute="trailing" id="meq-Rv-vZu"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Mk5-K4-v8f"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="QsM-71-8jF"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ada-5D-S34">
+                                <rect key="frame" x="375" y="46.5" width="29" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ada-5D-S34" secondAttribute="height" id="ln5-vF-65v"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" backgroundImage="list.bullet" catalog="system"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="mwP-xb-VhO"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dUY-au-ram">
+                                <rect key="frame" x="5" y="503.5" width="404" height="358.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Jp-G1l">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R7-Lx-9OV">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-0v-NHk">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlS-Lc-CJt">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="TJ3-0v-NHk" firstAttribute="width" secondItem="BUL-Jp-G1l" secondAttribute="width" multiplier="0.1" id="Mbl-Lo-NCc"/>
+                                            <constraint firstItem="qlS-Lc-CJt" firstAttribute="width" secondItem="BUL-Jp-G1l" secondAttribute="width" multiplier="0.45" id="PYW-AL-t4K"/>
+                                            <constraint firstItem="9R7-Lx-9OV" firstAttribute="width" secondItem="BUL-Jp-G1l" secondAttribute="width" multiplier="0.45" id="tpo-NF-t4Z"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwb-xF-zPY">
+                                        <rect key="frame" x="0.0" y="45.5" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss4-wc-9Ce">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ko-vl-FLt">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-zb-pb3">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ss4-wc-9Ce" firstAttribute="width" secondItem="rwb-xF-zPY" secondAttribute="width" multiplier="0.45" id="6hz-gV-9EN"/>
+                                            <constraint firstItem="0a1-zb-pb3" firstAttribute="width" secondItem="rwb-xF-zPY" secondAttribute="width" multiplier="0.45" id="k0Q-bu-1E2"/>
+                                            <constraint firstItem="5Ko-vl-FLt" firstAttribute="width" secondItem="rwb-xF-zPY" secondAttribute="width" multiplier="0.1" id="szD-rs-GVL"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4u-4l-qSM">
+                                        <rect key="frame" x="0.0" y="91" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyz-TH-mg1">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I8u-qK-tMP">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5s-2H-PfC">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Gyz-TH-mg1" firstAttribute="width" secondItem="r4u-4l-qSM" secondAttribute="width" multiplier="0.45" id="Y56-pl-x5Z"/>
+                                            <constraint firstItem="K5s-2H-PfC" firstAttribute="width" secondItem="r4u-4l-qSM" secondAttribute="width" multiplier="0.45" id="bE0-RG-CFO"/>
+                                            <constraint firstItem="I8u-qK-tMP" firstAttribute="width" secondItem="r4u-4l-qSM" secondAttribute="width" multiplier="0.1" id="thh-OO-RAC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKe-SS-pZM">
+                                        <rect key="frame" x="0.0" y="136.5" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CM-r5-S0f">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wzx-Ca-hbt">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCG-ui-cI5">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Wzx-Ca-hbt" firstAttribute="width" secondItem="XKe-SS-pZM" secondAttribute="width" multiplier="0.1" id="Qpu-kb-g6E"/>
+                                            <constraint firstItem="9CM-r5-S0f" firstAttribute="width" secondItem="XKe-SS-pZM" secondAttribute="width" multiplier="0.45" id="T8B-ay-Uol"/>
+                                            <constraint firstItem="aCG-ui-cI5" firstAttribute="width" secondItem="XKe-SS-pZM" secondAttribute="width" multiplier="0.45" id="lqW-9E-C2o"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgt-aL-7ue">
+                                        <rect key="frame" x="0.0" y="182" width="404" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRR-Pl-m3A">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-ZM-Q9e">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzt-Wa-exX">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="yRR-Pl-m3A" firstAttribute="width" secondItem="Cgt-aL-7ue" secondAttribute="width" multiplier="0.45" id="MBd-7B-YDi"/>
+                                            <constraint firstItem="Fzt-Wa-exX" firstAttribute="width" secondItem="Cgt-aL-7ue" secondAttribute="width" multiplier="0.45" id="gaa-dw-vdK"/>
+                                            <constraint firstItem="PoE-ZM-Q9e" firstAttribute="width" secondItem="Cgt-aL-7ue" secondAttribute="width" multiplier="0.1" id="l3W-oJ-SWu"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvt-yl-lBB">
+                                        <rect key="frame" x="0.0" y="227" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXB-aB-aYJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mE4-gM-fev">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPf-Ge-4yR">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="HXB-aB-aYJ" firstAttribute="width" secondItem="Rvt-yl-lBB" secondAttribute="width" multiplier="0.45" id="9Fk-lK-yBW"/>
+                                            <constraint firstItem="mE4-gM-fev" firstAttribute="width" secondItem="Rvt-yl-lBB" secondAttribute="width" multiplier="0.1" id="QSr-HC-pQG"/>
+                                            <constraint firstItem="EPf-Ge-4yR" firstAttribute="width" secondItem="Rvt-yl-lBB" secondAttribute="width" multiplier="0.45" id="dhv-Ba-CIx"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9q-YC-izP">
+                                        <rect key="frame" x="0.0" y="272.5" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcv-c4-qTW">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DQx-Bz-2vq">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-dk-4bY">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="DQx-Bz-2vq" firstAttribute="width" secondItem="s9q-YC-izP" secondAttribute="width" multiplier="0.1" id="NCQ-oK-vAV"/>
+                                            <constraint firstItem="fcv-c4-qTW" firstAttribute="width" secondItem="s9q-YC-izP" secondAttribute="width" multiplier="0.45" id="bMB-hz-mbU"/>
+                                            <constraint firstItem="AEe-dk-4bY" firstAttribute="width" secondItem="s9q-YC-izP" secondAttribute="width" multiplier="0.45" id="iCB-af-rJd"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5K-DO-tXY">
+                                        <rect key="frame" x="0.0" y="318" width="404" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2L-cT-zvS">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eBz-xt-7fF">
+                                                <rect key="frame" x="182" y="0.0" width="40" height="40.5"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44 | 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfH-cw-UQf">
+                                                <rect key="frame" x="222" y="0.0" width="182" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="QfH-cw-UQf" firstAttribute="width" secondItem="z5K-DO-tXY" secondAttribute="width" multiplier="0.45" id="60d-nr-pe8"/>
+                                            <constraint firstItem="d2L-cT-zvS" firstAttribute="width" secondItem="z5K-DO-tXY" secondAttribute="width" multiplier="0.45" id="fhn-xK-ZgJ"/>
+                                            <constraint firstItem="eBz-xt-7fF" firstAttribute="width" secondItem="z5K-DO-tXY" secondAttribute="width" multiplier="0.1" id="xvz-aN-cv2"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="ZFc-ep-Mre">
+                                <rect key="frame" x="10" y="44" width="54" height="13.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="c&lt;-&gt;f"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGh-8P-Euz">
+                                <rect key="frame" x="266.5" y="226.5" width="18.5" height="17"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunrise: 05:00 AM sunset: 08:00 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fDY-6d-Wx3">
+                                <rect key="frame" x="100" y="248.5" width="214" height="34"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ltf-Om-mQZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dUY-au-ram" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" constant="5" id="1By-pP-LEq"/>
+                            <constraint firstItem="ScK-uY-YNg" firstAttribute="centerX" secondItem="B70-RR-Y7U" secondAttribute="centerX" constant="10" id="3Tk-Ru-yIu"/>
+                            <constraint firstItem="Ulv-5e-LNV" firstAttribute="top" secondItem="Ltf-Om-mQZ" secondAttribute="top" constant="35" id="Alo-Di-nZb"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="trailing" secondItem="fZj-g9-x2Z" secondAttribute="trailing" id="FK2-t3-272"/>
+                            <constraint firstItem="ZFc-ep-Mre" firstAttribute="width" secondItem="FxY-Ar-crl" secondAttribute="width" multiplier="0.13" id="FfZ-VL-eub"/>
+                            <constraint firstAttribute="bottom" secondItem="FxY-Ar-crl" secondAttribute="bottom" id="FvS-oB-6Di"/>
+                            <constraint firstItem="FoK-Qd-EiR" firstAttribute="top" secondItem="fDY-6d-Wx3" secondAttribute="bottom" id="Gnm-ZJ-sWe"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="trailing" secondItem="ada-5D-S34" secondAttribute="trailing" constant="10" id="Ieq-SM-c3j"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="trailing" secondItem="FxY-Ar-crl" secondAttribute="trailing" id="Jnw-y8-ocZ"/>
+                            <constraint firstItem="dUY-au-ram" firstAttribute="height" secondItem="B70-RR-Y7U" secondAttribute="height" multiplier="0.4" id="K6b-5A-c8o"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="bottom" secondItem="dUY-au-ram" secondAttribute="bottom" id="KbK-H7-1Qp"/>
+                            <constraint firstItem="nGh-8P-Euz" firstAttribute="leading" secondItem="ScK-uY-YNg" secondAttribute="trailing" constant="7" id="PUU-wT-rxC"/>
+                            <constraint firstItem="FoK-Qd-EiR" firstAttribute="width" secondItem="B70-RR-Y7U" secondAttribute="width" multiplier="0.3" id="UEN-iF-iqL"/>
+                            <constraint firstItem="Ulv-5e-LNV" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" constant="15" id="YF1-pt-uDc"/>
+                            <constraint firstItem="FxY-Ar-crl" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" id="Z0A-Wc-cfU"/>
+                            <constraint firstItem="ZFc-ep-Mre" firstAttribute="width" secondItem="ZFc-ep-Mre" secondAttribute="height" multiplier="4" id="bb1-gB-OoC"/>
+                            <constraint firstItem="FoK-Qd-EiR" firstAttribute="centerX" secondItem="B70-RR-Y7U" secondAttribute="centerX" id="dbA-53-SuG"/>
+                            <constraint firstItem="fDY-6d-Wx3" firstAttribute="top" secondItem="ScK-uY-YNg" secondAttribute="bottom" constant="-10" id="emN-gb-Zjz"/>
+                            <constraint firstItem="FxY-Ar-crl" firstAttribute="top" secondItem="B70-RR-Y7U" secondAttribute="top" id="fGi-y1-rsR"/>
+                            <constraint firstItem="fDY-6d-Wx3" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" constant="100" id="j7E-4A-ac5"/>
+                            <constraint firstItem="ZFc-ep-Mre" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" constant="10" id="joc-dN-cm4"/>
+                            <constraint firstItem="ada-5D-S34" firstAttribute="width" secondItem="FxY-Ar-crl" secondAttribute="width" multiplier="0.07" id="k1V-4q-nL2"/>
+                            <constraint firstItem="ada-5D-S34" firstAttribute="top" secondItem="Ltf-Om-mQZ" secondAttribute="top" id="lfu-hB-fst"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="trailing" secondItem="dUY-au-ram" secondAttribute="trailing" constant="5" id="ltL-7G-2hZ"/>
+                            <constraint firstItem="Ltf-Om-mQZ" firstAttribute="trailing" secondItem="fDY-6d-Wx3" secondAttribute="trailing" constant="100" id="npv-sK-iEs"/>
+                            <constraint firstItem="ZFc-ep-Mre" firstAttribute="top" secondItem="Ltf-Om-mQZ" secondAttribute="top" id="pZV-ji-pUc"/>
+                            <constraint firstItem="fZj-g9-x2Z" firstAttribute="leading" secondItem="Ltf-Om-mQZ" secondAttribute="leading" id="pxn-kr-kb6"/>
+                            <constraint firstItem="fZj-g9-x2Z" firstAttribute="top" secondItem="FoK-Qd-EiR" secondAttribute="bottom" constant="5" id="qgs-VL-r1S"/>
+                            <constraint firstItem="dUY-au-ram" firstAttribute="top" secondItem="fZj-g9-x2Z" secondAttribute="bottom" constant="2" id="qh9-Xi-MXa"/>
+                            <constraint firstItem="ScK-uY-YNg" firstAttribute="top" secondItem="Ulv-5e-LNV" secondAttribute="bottom" id="tEQ-IZ-AhJ"/>
+                            <constraint firstItem="fDY-6d-Wx3" firstAttribute="top" secondItem="nGh-8P-Euz" secondAttribute="bottom" constant="5" id="u5t-8i-UoX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fI7-Wo-72c">
+                        <barButtonItem key="rightBarButtonItem" image="list.dash" catalog="system" id="1w1-3H-07t"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backgroundImage" destination="FxY-Ar-crl" id="QBf-TO-XA5"/>
+                        <outlet property="dateAndGreetingLabel" destination="Ulv-5e-LNV" id="mrH-bq-WE4"/>
+                        <outlet property="feelsLikeLabel" destination="nGh-8P-Euz" id="ZKl-z5-p6U"/>
+                        <outlet property="locationLabel" destination="mid-4j-Xj6" id="1vS-Bs-Og9"/>
+                        <outlet property="mainIconImageView" destination="FoK-Qd-EiR" id="c88-KJ-uEa"/>
+                        <outlet property="mainTempLabel" destination="ScK-uY-YNg" id="eQe-dA-KeE"/>
+                        <outlet property="sunriseSetLabel" destination="fDY-6d-Wx3" id="oUn-lh-evq"/>
+                        <outletCollection property="hourlyTimeName" destination="y2C-w7-7pj" collectionClass="NSMutableArray" id="Jpc-8o-vn2"/>
+                        <outletCollection property="hourlyTimeName" destination="Vse-Ph-qhn" collectionClass="NSMutableArray" id="Yru-4X-YxW"/>
+                        <outletCollection property="hourlyTimeName" destination="mh9-g0-QXa" collectionClass="NSMutableArray" id="fYN-mA-P65"/>
+                        <outletCollection property="hourlyTimeName" destination="NYx-T6-KJp" collectionClass="NSMutableArray" id="Y6C-4R-TgP"/>
+                        <outletCollection property="hourlyTimeName" destination="cBo-CM-wZy" collectionClass="NSMutableArray" id="qvt-Sn-Q4s"/>
+                        <outletCollection property="hourlyTimeName" destination="6tA-Ig-gN8" collectionClass="NSMutableArray" id="DTj-Cd-ck3"/>
+                        <outletCollection property="hourlyTimeName" destination="w06-yf-IhD" collectionClass="NSMutableArray" id="d7j-6v-kLs"/>
+                        <outletCollection property="hourlyTimeName" destination="kCD-oR-V9e" collectionClass="NSMutableArray" id="3ip-zB-vJs"/>
+                        <outletCollection property="hourlyTimeName" destination="it9-NT-MZ2" collectionClass="NSMutableArray" id="q3S-z4-IP8"/>
+                        <outletCollection property="hourlyTimeName" destination="f9z-D8-aTx" collectionClass="NSMutableArray" id="bVn-HO-dQw"/>
+                        <outletCollection property="hourlyTimeName" destination="y6B-S1-UdJ" collectionClass="NSMutableArray" id="tx4-1j-yhb"/>
+                        <outletCollection property="hourlyTimeName" destination="VsV-ej-Olk" collectionClass="NSMutableArray" id="mKi-t3-n3l"/>
+                        <outletCollection property="hourlyImageView" destination="YgS-VE-jdC" collectionClass="NSMutableArray" id="lDg-CX-B1G"/>
+                        <outletCollection property="hourlyImageView" destination="XeC-Fk-6uj" collectionClass="NSMutableArray" id="Om8-SO-yXz"/>
+                        <outletCollection property="hourlyImageView" destination="Nvo-gU-d5m" collectionClass="NSMutableArray" id="egh-Pt-Qzk"/>
+                        <outletCollection property="hourlyImageView" destination="4Z4-bx-r5Y" collectionClass="NSMutableArray" id="zXb-Zf-bgr"/>
+                        <outletCollection property="hourlyImageView" destination="lS0-tc-F9J" collectionClass="NSMutableArray" id="adr-P6-gFP"/>
+                        <outletCollection property="hourlyImageView" destination="den-ye-zUc" collectionClass="NSMutableArray" id="Ye1-0x-kvb"/>
+                        <outletCollection property="hourlyImageView" destination="94Y-EE-wz5" collectionClass="NSMutableArray" id="O1Q-5x-5ji"/>
+                        <outletCollection property="hourlyImageView" destination="uwo-Z8-Hkg" collectionClass="NSMutableArray" id="yHH-Wt-uvJ"/>
+                        <outletCollection property="hourlyImageView" destination="fl8-BX-uno" collectionClass="NSMutableArray" id="tpE-ou-MBq"/>
+                        <outletCollection property="hourlyImageView" destination="amz-yI-FHM" collectionClass="NSMutableArray" id="96o-cs-c0y"/>
+                        <outletCollection property="hourlyImageView" destination="WMG-V4-oix" collectionClass="NSMutableArray" id="ppD-LB-aMB"/>
+                        <outletCollection property="hourlyImageView" destination="SdH-ve-ItO" collectionClass="NSMutableArray" id="1bc-6L-9DS"/>
+                        <outletCollection property="hourlyTemp" destination="x8x-Ps-sNs" collectionClass="NSMutableArray" id="ANV-DV-0Jh"/>
+                        <outletCollection property="hourlyTemp" destination="Y29-Z2-X6X" collectionClass="NSMutableArray" id="adY-9a-lhP"/>
+                        <outletCollection property="hourlyTemp" destination="5og-jZ-gUQ" collectionClass="NSMutableArray" id="D5j-1n-6Nk"/>
+                        <outletCollection property="hourlyTemp" destination="O68-NH-88k" collectionClass="NSMutableArray" id="3wH-aC-3qZ"/>
+                        <outletCollection property="hourlyTemp" destination="X1O-so-JqN" collectionClass="NSMutableArray" id="q1u-Yb-sr0"/>
+                        <outletCollection property="hourlyTemp" destination="CCb-7Y-3ii" collectionClass="NSMutableArray" id="n4O-uD-lKs"/>
+                        <outletCollection property="hourlyTemp" destination="1yK-7j-tN5" collectionClass="NSMutableArray" id="ODr-QE-cc7"/>
+                        <outletCollection property="hourlyTemp" destination="44Y-qG-hgr" collectionClass="NSMutableArray" id="xd2-i4-7On"/>
+                        <outletCollection property="hourlyTemp" destination="PmJ-XH-xzN" collectionClass="NSMutableArray" id="siK-3M-8b2"/>
+                        <outletCollection property="hourlyTemp" destination="uuB-FJ-TV8" collectionClass="NSMutableArray" id="2fH-SS-JQe"/>
+                        <outletCollection property="hourlyTemp" destination="NlI-fe-eKS" collectionClass="NSMutableArray" id="d5Y-Vv-zIX"/>
+                        <outletCollection property="hourlyTemp" destination="Om0-Fh-2kP" collectionClass="NSMutableArray" id="drC-ia-cpm"/>
+                        <outletCollection property="dailyName" destination="9R7-Lx-9OV" collectionClass="NSMutableArray" id="3hc-ef-5Aa"/>
+                        <outletCollection property="dailyName" destination="ss4-wc-9Ce" collectionClass="NSMutableArray" id="ZLW-o7-aez"/>
+                        <outletCollection property="dailyName" destination="Gyz-TH-mg1" collectionClass="NSMutableArray" id="9yG-fl-tR1"/>
+                        <outletCollection property="dailyName" destination="9CM-r5-S0f" collectionClass="NSMutableArray" id="yyc-gJ-vsh"/>
+                        <outletCollection property="dailyName" destination="yRR-Pl-m3A" collectionClass="NSMutableArray" id="75c-8B-951"/>
+                        <outletCollection property="dailyName" destination="HXB-aB-aYJ" collectionClass="NSMutableArray" id="f3B-CM-wAf"/>
+                        <outletCollection property="dailyName" destination="fcv-c4-qTW" collectionClass="NSMutableArray" id="srr-ID-dE6"/>
+                        <outletCollection property="dailyName" destination="d2L-cT-zvS" collectionClass="NSMutableArray" id="ZFy-rr-I0Y"/>
+                        <outletCollection property="dailyImageView" destination="TJ3-0v-NHk" collectionClass="NSMutableArray" id="0uV-qZ-g4P"/>
+                        <outletCollection property="dailyImageView" destination="5Ko-vl-FLt" collectionClass="NSMutableArray" id="rCH-nW-I2B"/>
+                        <outletCollection property="dailyImageView" destination="I8u-qK-tMP" collectionClass="NSMutableArray" id="NA5-bm-hIv"/>
+                        <outletCollection property="dailyImageView" destination="Wzx-Ca-hbt" collectionClass="NSMutableArray" id="hce-wP-81w"/>
+                        <outletCollection property="dailyImageView" destination="PoE-ZM-Q9e" collectionClass="NSMutableArray" id="LCy-ox-FYh"/>
+                        <outletCollection property="dailyImageView" destination="mE4-gM-fev" collectionClass="NSMutableArray" id="v3f-dF-uFi"/>
+                        <outletCollection property="dailyImageView" destination="DQx-Bz-2vq" collectionClass="NSMutableArray" id="nZ2-PD-SGi"/>
+                        <outletCollection property="dailyImageView" destination="eBz-xt-7fF" collectionClass="NSMutableArray" id="03d-6t-X4q"/>
+                        <outletCollection property="dailyHighLow" destination="qlS-Lc-CJt" collectionClass="NSMutableArray" id="2Jp-lB-ZQs"/>
+                        <outletCollection property="dailyHighLow" destination="0a1-zb-pb3" collectionClass="NSMutableArray" id="QMM-pN-a6o"/>
+                        <outletCollection property="dailyHighLow" destination="K5s-2H-PfC" collectionClass="NSMutableArray" id="H7X-QU-j8R"/>
+                        <outletCollection property="dailyHighLow" destination="aCG-ui-cI5" collectionClass="NSMutableArray" id="lKD-rz-B5r"/>
+                        <outletCollection property="dailyHighLow" destination="Fzt-Wa-exX" collectionClass="NSMutableArray" id="QXd-l1-8k5"/>
+                        <outletCollection property="dailyHighLow" destination="EPf-Ge-4yR" collectionClass="NSMutableArray" id="YYC-Qp-a8T"/>
+                        <outletCollection property="dailyHighLow" destination="AEe-dk-4bY" collectionClass="NSMutableArray" id="4RG-y9-Fox"/>
+                        <outletCollection property="dailyHighLow" destination="QfH-cw-UQf" collectionClass="NSMutableArray" id="l00-y3-QzH"/>
+                        <outletCollection property="hourlyStackView" destination="TC4-Xx-2JT" collectionClass="NSMutableArray" id="rqm-zO-bIl"/>
+                        <outletCollection property="hourlyStackView" destination="j84-mG-HTE" collectionClass="NSMutableArray" id="ZUd-Ma-Kac"/>
+                        <outletCollection property="hourlyStackView" destination="4sY-5O-HLe" collectionClass="NSMutableArray" id="N2z-zV-pB0"/>
+                        <outletCollection property="hourlyStackView" destination="w4E-DP-gig" collectionClass="NSMutableArray" id="Ajz-SR-4XL"/>
+                        <outletCollection property="hourlyStackView" destination="cK7-w2-iHk" collectionClass="NSMutableArray" id="6xt-cX-vSd"/>
+                        <outletCollection property="hourlyStackView" destination="b7A-1D-C3T" collectionClass="NSMutableArray" id="iPJ-HE-Fzo"/>
+                        <outletCollection property="hourlyStackView" destination="fHO-vV-DS3" collectionClass="NSMutableArray" id="D9c-3o-nHO"/>
+                        <outletCollection property="hourlyStackView" destination="GPU-tU-jbw" collectionClass="NSMutableArray" id="9dk-s8-gjp"/>
+                        <outletCollection property="hourlyStackView" destination="w4X-U3-tGy" collectionClass="NSMutableArray" id="rgf-c7-cc1"/>
+                        <outletCollection property="hourlyStackView" destination="Qk0-JX-MRC" collectionClass="NSMutableArray" id="o7B-VL-ZWv"/>
+                        <outletCollection property="hourlyStackView" destination="VvW-La-AD8" collectionClass="NSMutableArray" id="inu-G7-oKm"/>
+                        <outletCollection property="hourlyStackView" destination="fxO-Db-kUm" collectionClass="NSMutableArray" id="mOM-0u-B67"/>
+                        <outletCollection property="dailyStackView" destination="BUL-Jp-G1l" collectionClass="NSMutableArray" id="hQn-4Q-LFc"/>
+                        <outletCollection property="dailyStackView" destination="rwb-xF-zPY" collectionClass="NSMutableArray" id="b8d-aw-kVK"/>
+                        <outletCollection property="dailyStackView" destination="r4u-4l-qSM" collectionClass="NSMutableArray" id="C29-1L-kcc"/>
+                        <outletCollection property="dailyStackView" destination="XKe-SS-pZM" collectionClass="NSMutableArray" id="wdr-1q-dWh"/>
+                        <outletCollection property="dailyStackView" destination="Cgt-aL-7ue" collectionClass="NSMutableArray" id="irF-zl-0Eg"/>
+                        <outletCollection property="dailyStackView" destination="Rvt-yl-lBB" collectionClass="NSMutableArray" id="Qu1-VN-NeR"/>
+                        <outletCollection property="dailyStackView" destination="s9q-YC-izP" collectionClass="NSMutableArray" id="wWJ-8a-XUV"/>
+                        <outletCollection property="dailyStackView" destination="z5K-DO-tXY" collectionClass="NSMutableArray" id="u7d-ZU-ZEz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="103-0g-hj5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="221.65178571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eHG-MP-BeF"/>
+        <segue reference="UyN-xg-0Zr"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="launchscreen" width="414" height="736"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="main" width="333.5" height="197.5"/>
+        <image name="moon.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="night" width="911" height="911"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="sun.min" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
